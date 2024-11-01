@@ -1,0 +1,180 @@
+/*
+Plugin Name: Tap Warp
+Description: Upload pictures from smartphone to wordpress directly.
+Version:     0.1.0
+Author:      Yuxiang Mao
+Author URI:  http://qaon.net
+License:     GPL3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+@charset "utf8";
+
+.tapwarp-qrcode-container {
+	float: left;
+	clear: left;
+	position: relative;
+	overflow: visible;
+	z-index: 9;
+	transition: all 1s ease;
+	display: inline-block;
+}
+
+.uploader-inline .tapwarp-qrcode-container {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.uploader-inline {
+	height: 240px;
+}
+
+.tapwarp-qrcode-image {
+	max-width: 223px;
+	display: block;
+	cursor: pointer;
+}
+
+.tapwarp-guide-stripe {
+	text-align: center;
+	background-color: #2E9AFE;
+	color: white;
+	position: relative;
+}
+
+.tapwarp-guide-stripe label {
+	display: block;
+	width: 100%;
+}
+
+#tapwarp-guide-trigger ~ div.tapwarp-guide-panel {
+	display: none;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px 0px 10px 0px;
+	border: 1px solid #e0e0e0;
+	bottom: 20px;
+}
+
+#tapwarp-guide-trigger:checked ~ div.tapwarp-guide-panel {
+	display: table;
+}
+
+div.tapwarp-guide-panel > div {
+	display: table-cell;
+	width: 50%;
+}
+
+div.tapwarp-guide-panel img {
+	max-width: 50%;
+}
+
+.attachment div.tapwarp-refresh-request {
+	position: absolute;
+	width: 100%;
+	min-height: 30px;
+	background-color: rgba(255,255,255,0.8);
+	color: #4000FF;
+	text-align: center;
+	display: none;
+	z-index: 1;
+	bottom: 0px;
+}
+
+.attachment:hover div.tapwarp-refresh-request {
+	display: table;
+}
+
+.attachment:active div.tapwarp-refresh-request {
+	display: table;
+}
+
+div.tapwarp-refresh-request > div {
+	display: table-cell;
+}
+
+.tapwarp-loading-image {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	border: none;
+	top: 0px;
+	right: 0px;
+	display: none;
+}
+
+h1 > .tapwarp-loading-image {
+	position: static;
+}
+
+.tapwarp-loading-image.loading {
+	display: block;
+}
+
+.tapwarp-text-code-container {
+	position: absolute;
+	left: 100%;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+	overflow: hidden;
+	z-index: 99;
+	transition: all 0.3s ease;
+	opacity: 0;
+	text-indent: -1000px;
+}
+
+.tapwarp-text-code-container.show {
+	width: 480px;
+	text-indent: 0px;
+	opacity: 1;
+}
+
+.tapwarp-text-code-container > div:first-child {
+	width: 0px;
+	height: 0px;
+	border-color: transparent #FFFFFF transparent transparent;
+	border-width: 20px 20px 20px 0px;
+	border-style: solid;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+.tapwarp-text-code-container > div:last-child {
+	display: inline-block;
+	width: 450px;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	vertical-align: middle;
+	position: relative;
+	text-align: left;
+}
+
+.tapwarp-text-code-container > div:last-child textarea {
+	width: 430px;
+	height: 100%;
+	border: 5px solid white;
+	background-color: #f0f0f0;
+	margin: 0px;
+}
+
+.tapwarp-code-copied {
+	width: 420px;
+	left: 0px;
+	bottom: 0%;
+	background-color: white;
+	color: black;
+	position: absolute;
+	padding: 5px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	text-align: center;
+}
